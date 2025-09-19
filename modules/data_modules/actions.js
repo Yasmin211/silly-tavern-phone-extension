@@ -205,13 +205,13 @@ export async function addWeChatCallEndMessage(contactId, duration) {
 
 export async function initiateVoiceCall(contactId) {
     const contactName = UI._getContactName(contactId);
-    const prompt = `(系统提示：{{user}}向${contactName}发起了微信语音通话...)`;
+    const prompt = `(System prompt: {{user}} is starting a WeChat voice call with ${contactName}...)`;
     await TavernHelper_API.triggerSlash(`/setinput ${JSON.stringify(prompt)}`);
     SillyTavern_Context_API.generate();
 }
 
 export async function initiatePhoneCall(callTarget) {
-    const prompt = `(系统提示：{{user}}正在呼叫${callTarget.name}的电话...)`;
+    const prompt = `(System prompt: {{user}} is calling ${callTarget.name}'s phone...)`;
     await TavernHelper_API.triggerSlash(`/setinput ${JSON.stringify(prompt)}`);
     SillyTavern_Context_API.generate();
     UI.closeCallUI();
@@ -294,7 +294,7 @@ export async function commitStagedActions() {
     PhoneSim_State.stagedPlayerActions = [];
     UI.updateCommitButton();
 
-    let textPrompt = `(系统提示：{{user}}刚刚在手机上进行了如下操作：\\n`;
+    let textPrompt = `(System prompt: {{user}} just performed the following actions on their phone:\\n`;
     let hasActionsForAI = false;
     
     const finalMessagesToPersist = [];
@@ -310,10 +310,10 @@ export async function commitStagedActions() {
             
             if (msg.tempMessageObject.replyingTo) {
                 const originalMsg = DataHandler.findMessageByUid(msg.tempMessageObject.replyingTo);
-                const originalSender = originalMsg ? UI._getContactName(originalMsg.sender_id) : '某人';
-                textPrompt += `- 在[${contact.profile.groupName ? '群聊' : '私聊'}:${contactName}]中回复了${originalSender}的消息，并发送：“${contentForAI}”\\n`;
+                const originalSender = originalMsg ? UI._getContactName(originalMsg.sender_id) : 'someone';
+                textPrompt += `- In [${contact.profile.groupName ? 'Group Chat' : 'Private Chat'}:${contactName}], replied to ${originalSender}'s message and sent: "${contentForAI}"\\n`;
             } else {
-                textPrompt += `- 在[${contact.profile.groupName ? '群聊' : '私聊'}:${contactName}]中发送消息：“${contentForAI}”\\n`;
+                textPrompt += `- In [${contact.profile.groupName ? 'Group Chat' : 'Private Chat'}:${contactName}], sent a message: "${contentForAI}"\\n`;
             }
             
             const finalMessage = { ...msg.tempMessageObject };
@@ -349,41 +349,41 @@ export async function commitStagedActions() {
         hasActionsForAI = true;
         switch(action.type) {
             case 'manual_add_friend':
-                textPrompt += `- 通过手机号“${action.id}”添加了新联系人“${action.nickname}”。\n`;
+                textPrompt += `- Added a new contact "${action.nickname}" with phone number "${action.id}".\n`;
                 break;
             case 'accept_transaction': {
                 const transactionMsg = DataHandler.findMessageByUid(action.uid);
                 if (transactionMsg) {
                     const senderName = UI._getContactName(transactionMsg.sender_id);
-                    const typeText = transactionMsg.content.type === 'red_packet' ? '红包' : '转账';
-                    textPrompt += `- 接收了${senderName}的${typeText}。\\n`;
+                    const typeText = transactionMsg.content.type === 'red_packet' ? 'Red Packet' : 'Transfer';
+                    textPrompt += `- Accepted the ${typeText} from ${senderName}.\\n`;
                 }
                 break;
             }
             case 'create_group': {
-                const memberNames = action.memberIds.map(id => `“${UI._getContactName(id)}”`).join('、');
-                textPrompt += `- 创建了群聊“${action.groupName}”，并邀请了${memberNames}加入。\\n`;
+                const memberNames = action.memberIds.map(id => `"${UI._getContactName(id)}"`).join(', ');
+                textPrompt += `- Created a group chat "${action.groupName}" and invited ${memberNames} to join.\\n`;
                 break;
             }
             case 'kick_member': {
                 const memberName = UI._getContactName(action.memberId);
-                textPrompt += `- 在群聊“${groupName}”中将“${memberName}”移出群聊。\\n`;
+                textPrompt += `- Removed "${memberName}" from the group chat "${groupName}".\\n`;
                 break;
             }
             case 'invite_members': {
-                const invitedNames = action.memberIds.map(id => `“${UI._getContactName(id)}”`).join('、');
-                textPrompt += `- 在群聊“${groupName}”中邀请了${invitedNames}加入群聊。\\n`;
+                const invitedNames = action.memberIds.map(id => `"${UI._getContactName(id)}"`).join(', ');
+                textPrompt += `- Invited ${invitedNames} to the group chat "${groupName}".\\n`;
                 break;
             }
             case 'new_moment': {
-                textPrompt += `- 发表了新动态：“${action.data.content}”` + (action.data.images?.length > 0 ? ' [附图片]' : '') + `\\n`;
+                textPrompt += `- Posted a new moment: "${action.data.content}"` + (action.data.images?.length > 0 ? ' [with images]' : '') + `\\n`;
                 break;
             }
             case 'like': {
                 const moment = PhoneSim_State.moments.find(m => m.momentId === action.momentId);
                 if (moment) {
                     const posterName = UI._getContactName(moment.posterId);
-                    textPrompt += `- 点赞了${posterName}的动态\\n`;
+                    textPrompt += `- Liked ${posterName}'s moment\\n`;
                 }
                 break;
             }
@@ -391,7 +391,7 @@ export async function commitStagedActions() {
                 const moment = PhoneSim_State.moments.find(m => m.momentId === action.momentId);
                 if (moment) {
                     const posterName = UI._getContactName(moment.posterId);
-                    textPrompt += `- 评论了${posterName}的动态：“${action.content}”\\n`;
+                    textPrompt += `- Commented on ${posterName}'s moment: "${action.content}"\\n`;
                 }
                 break;
             }
@@ -399,87 +399,87 @@ export async function commitStagedActions() {
                 const moment = PhoneSim_State.moments.find(m => m.momentId === action.momentId);
                 if (moment) {
                     const posterName = UI._getContactName(moment.posterId);
-                    textPrompt += `- 修改了对${posterName}动态的评论为：“${action.content}”\\n`;
+                    textPrompt += `- Edited their comment on ${posterName}'s moment to: "${action.content}"\\n`;
                 }
                 break;
             }
             case 'recall_comment': {
                 const moment = PhoneSim_State.moments.find(m => m.momentId === action.momentId);
                 if (moment) {
-                    textPrompt += `- 撤回了对${UI._getContactName(moment.posterId)}动态的一条评论\\n`;
+                    textPrompt += `- Recalled a comment on ${UI._getContactName(moment.posterId)}'s moment\\n`;
                 }
                 break;
             }
             case 'delete_comment': {
-                textPrompt += `- 删除了自己在一条动态下的评论\\n`;
+                textPrompt += `- Deleted their comment on a moment\\n`;
                 break;
             }
             case 'edit_moment': {
-                textPrompt += `- 修改了自己的动态：“${action.content}”\\n`;
+                textPrompt += `- Edited their moment to: "${action.content}"\\n`;
                 break;
             }
             case 'delete_moment': {
-                textPrompt += `- 删除了自己发布的一条动态\\n`;
+                textPrompt += `- Deleted one of their moments\\n`;
                 break;
             }
             case 'friend_request_response': {
-                const responseText = action.action === 'accept' ? '接受了' : '忽略了';
-                textPrompt += `- ${responseText}${action.from_name}的好友请求\\n`;
+                const responseText = action.action === 'accept' ? 'accepted' : 'ignored';
+                textPrompt += `- ${responseText} ${action.from_name}'s friend request\\n`;
                 break;
             }
             case 'new_forum_post': {
-                textPrompt += `- 在论坛“${action.boardName}”板块发表了新帖子（帖子ID: ${action.postId}），标题为“${action.title}”，内容为“${action.content}”\\n`;
+                textPrompt += `- Posted a new thread in the "${action.boardName}" forum board (Post ID: ${action.postId}), titled "${action.title}", with the content: "${action.content}"\\n`;
                 break;
             }
             case 'new_live_stream': {
-                textPrompt += `- 在直播中心“${action.boardName}”板块创建了新的直播间，标题为“${action.title}”，直播简介为“${action.content}”\\n`;
+                textPrompt += `- Created a new live stream in the "${action.boardName}" live center board, titled "${action.title}", with the description: "${action.content}"\\n`;
                 break;
             }
             case 'new_forum_reply': {
                 const post = DataHandler.findForumPostById(action.postId);
                 if (post) {
                     const postAuthorName = UI._getContactName(post.authorId);
-                    textPrompt += `- 回复了${postAuthorName}的论坛帖子“${post.title}”：“${action.content}”\\n`;
+                    textPrompt += `- Replied to ${postAuthorName}'s forum post "${post.title}": "${action.content}"\\n`;
                 }
                 break;
             }
             case 'like_forum_post': {
                 const likedPost = DataHandler.findForumPostById(action.postId);
                 if (likedPost) {
-                     textPrompt += `- 点赞了${UI._getContactName(likedPost.authorId)}的论坛帖子“${likedPost.title}”\\n`;
+                     textPrompt += `- Liked ${UI._getContactName(likedPost.authorId)}'s forum post "${likedPost.title}"\\n`;
                 }
                 break;
             }
             case 'edit_forum_post': {
                  const editedPost = DataHandler.findForumPostById(action.postId);
                  if(editedPost) {
-                    textPrompt += `- 修改了论坛帖子“${editedPost.title}”的内容为：“${action.content}”\\n`;
+                    textPrompt += `- Edited the forum post "${editedPost.title}" to: "${action.content}"\\n`;
                  }
                  break;
             }
             case 'delete_forum_post': {
-                textPrompt += `- 删除了自己在论坛发表的帖子\\n`;
+                textPrompt += `- Deleted their forum post\\n`;
                 break;
             }
             case 'edit_forum_reply': {
-                textPrompt += `- 修改了在论坛中的一条回复为：“${action.content}”\\n`;
+                textPrompt += `- Edited their reply in the forum to: "${action.content}"\\n`;
                 break;
             }
             case 'delete_forum_reply': {
-                textPrompt += `- 删除了自己在论坛发表的一条回复\\n`;
+                textPrompt += `- Deleted their reply in the forum\\n`;
                 break;
             }
             case 'new_danmaku': {
                 const stream = DataHandler.findLiveStreamById(action.streamerId);
                 if (stream) {
-                    textPrompt += `- 在${stream.streamerName}的直播间发送了弹幕：“${action.content}”\\n`;
+                    textPrompt += `- Sent a comment in ${stream.streamerName}'s live stream: "${action.content}"\\n`;
                 }
                 break;
             }
         }
     });
 
-    textPrompt += `请根据以上操作，继续推演角色的反应和接下来的剧情。)`;
+    textPrompt += `Please continue the story based on these actions.)`;
 
     await _updateWorldbook(PhoneSim_Config.WORLD_DB_NAME, dbData => {
         finalMessagesToPersist.forEach(item => {
@@ -539,7 +539,7 @@ export async function commitStagedActions() {
                     }
                     const newPost = {
                         postId: action.postId, boardId: boardId, authorId: PhoneSim_Config.PLAYER_ID,
-                        authorName: PhoneSim_State.customization.playerNickname || '我', title: action.title,
+                        authorName: PhoneSim_State.customization.playerNickname || 'Me', title: action.title,
                         content: action.content, timestamp: new Date().toISOString(), replies: [], likes: [],
                     };
                     forumDb[boardId].posts.push(newPost);
@@ -550,7 +550,7 @@ export async function commitStagedActions() {
                             if (!post.replies) post.replies = [];
                             post.replies.push({
                                 replyId: action.replyId, postId: action.postId, authorId: PhoneSim_Config.PLAYER_ID,
-                                authorName: PhoneSim_State.customization.playerNickname || '我', content: action.content,
+                                authorName: PhoneSim_State.customization.playerNickname || 'Me', content: action.content,
                                 timestamp: new Date().toISOString()
                             });
                             break;
@@ -788,8 +788,8 @@ export async function editMessageByUid(uid, newContent) {
 
 export async function recallMessageByUid(uid) {
     return await _findAndModifyMessage(uid, (msg) => {
-        const senderName = msg.sender_id === PhoneSim_Config.PLAYER_ID ? '你' : UI._getContactName(msg.sender_id);
-        msg.content = `${senderName}撤回了一条消息`;
+        const senderName = msg.sender_id === PhoneSim_Config.PLAYER_ID ? 'You' : UI._getContactName(msg.sender_id);
+        msg.content = `${senderName} recalled a message`;
         msg.recalled = true;
         return msg;
     });
