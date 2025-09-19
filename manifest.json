@@ -1,0 +1,11 @@
+
+{
+    "display_name": "Phone Simulator",
+    "author": "Feature Update",
+    "version": "17.0",
+    "description": "v17.0 [Feature Update] Added 'Live Center' application, supporting AI-simulated live sections, lists, and live room content. Added front-end real-time search function for forum and live center.",
+    "loading_order": 100,
+    "js": "script.js",
+    "css": "style.css",
+    "html": "panel.html"
+}

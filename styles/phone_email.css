@@ -1,0 +1,86 @@
+
+
+/* Phone & Email Common */
+#phone-sim-panel-v10-0 #phoneapp-view .subview-wrapper { flex: 1; display: flex; position: relative; overflow: hidden; }
+#phone-sim-panel-v10-0 .phone-contact-list, #phone-sim-panel-v10-0 .email-list-content, #phone-sim-panel-v10-0 .call-log-list { flex:1; overflow-y:auto; background:#fff; }
+#phone-sim-panel-v10-0 .email-empty-state { text-align: center; margin-top: 40px; color: #999; }
+#phone-sim-panel-v10-0 .phoneapp-bottom-nav { height: 50px; flex-shrink: 0; display: flex; border-top: 1px solid #e0e0e0; background: #f7f7f7; }
+#phone-sim-panel-v10-0 .phoneapp-bottom-nav .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #888; cursor: pointer; }
+#phone-sim-panel-v10-0 .phoneapp-bottom-nav .nav-item.active { color: #07c160; }
+#phone-sim-panel-v10-0 .phoneapp-bottom-nav .nav-item i { font-size: 20px; }
+#phone-sim-panel-v10-0 .phoneapp-bottom-nav .nav-item span { font-size: 10px; }
+
+/* Phone App Layout Fixes */
+#phone-sim-panel-v10-0 #phoneapp-view .phone-contacts-subview,
+#phone-sim-panel-v10-0 #phoneapp-view .phone-dialer-subview,
+#phone-sim-panel-v10-0 #phoneapp-view .phone-log-subview {
+    flex-direction: column;
+    flex: 1; /* Make subviews fill the wrapper */
+}
+#phone-sim-panel-v10-0 #phoneapp-view .phone-contact-list,
+#phone-sim-panel-v10-0 #phoneapp-view .call-log-list {
+    flex: 1;
+    overflow-y: auto;
+}
+#phone-sim-panel-v10-0 #phoneapp-view .dialer-ui {
+    flex: 1;
+}
+
+/* Phone App */
+#phone-sim-panel-v10-0 .phone-contact-item { display:flex; align-items:center; padding:10px 16px; border-bottom:1px solid #f0f0f0; cursor:pointer; gap: 10px; }
+#phone-sim-panel-v10-0 .phone-contact-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+#phone-sim-panel-v10-0 .phone-contact-name { flex-grow: 1; font-size: 16px; }
+#phone-sim-panel-v10-0 .phone-contact-call-btn { width: 40px; height: 40px; border-radius: 50%; background: #e8f5e9; color: #4caf50; display:flex; align-items:center; justify-content:center; flex-shrink: 0; cursor: pointer; transition: background-color .2s; }
+#phone-sim-panel-v10-0 .phone-contact-call-btn:hover { background: #dcedc8; }
+#phone-sim-panel-v10-0 .phone-contact-delete-btn { width: 40px; height: 40px; border-radius: 50%; background: #ffebee; color: #f44336; display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; transition: background-color .2s; }
+#phone-sim-panel-v10-0 .phone-contact-delete-btn:hover { background: #ffcdd2; }
+
+/* Call Log */
+#phone-sim-panel-v10-0 .call-log-item { display: flex; align-items: center; padding: 10px 16px; border-bottom: 1px solid #f0f0f0; gap: 12px; position: relative; }
+#phone-sim-panel-v10-0 .call-log-icon { width: 24px; text-align: center; color: #888; }
+#phone-sim-panel-v10-0 .call-log-info { flex-grow: 1; }
+#phone-sim-panel-v10-0 .call-log-name { font-size: 15px; font-weight: 500; }
+#phone-sim-panel-v10-0 .call-log-meta { font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+#phone-sim-panel-v10-0 .call-log-time { font-size: 13px; color: #888; }
+
+
+/* Dialer */
+#phone-sim-panel-v10-0 .dialer-ui { display: flex; flex-direction: column; padding: 15px; box-sizing: border-box; }
+#phone-sim-panel-v10-0 .dialer-display-wrapper { position: relative; margin-bottom: 15px; }
+#phone-sim-panel-v10-0 .dialer-display { width: 100%; height: 50px; border: none; background: transparent; font-size: 30px; text-align: center; padding-right: 40px; box-sizing: border-box; }
+#phone-sim-panel-v10-0 .dialer-backspace { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 20px; color: #888; cursor: pointer; }
+#phone-sim-panel-v10-0 .dialer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+#phone-sim-panel-v10-0 .dial-key { height: 60px; border-radius: 50%; background: #e0e0e0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; transition: background-color .2s; }
+#phone-sim-panel-v10-0 .dial-key:active { background-color: #c7c7c7; }
+#phone-sim-panel-v10-0 .dial-key span { font-size: 10px; color: #555; }
+#phone-sim-panel-v10-0 .dialer-actions { display: flex; justify-content: center; margin-top: 15px; }
+#phone-sim-panel-v10-0 .dial-call-btn { width: 60px; height: 60px; border-radius: 50%; background: #4caf50; color: white; border: none; font-size: 24px; cursor: pointer; }
+
+/* Email App */
+#phone-sim-panel-v10-0 .email-item { display:flex; align-items:center; padding:10px 16px; border-bottom:1px solid #f0f0f0; cursor:pointer; position: relative; }
+#phone-sim-panel-v10-0 .email-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 12px; flex-shrink: 0; }
+#phone-sim-panel-v10-0 .email-detail-subview { background: #fef6f6; }
+#phone-sim-panel-v10-0 .email-detail-scroll-content { flex: 1; overflow-y: auto; }
+#phone-sim-panel-v10-0 .email-detail-header-new { padding: 12px; background: #ffebeb; border-bottom: 1px solid #ffd1d1; display: flex; flex-direction: column; gap: 8px; }
+#phone-sim-panel-v10-0 .email-detail-title { font-size: 18px; color: #333; font-weight: bold; margin: 3px 0; }
+#phone-sim-panel-v10-0 .email-detail-info { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #666; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 10px; }
+#phone-sim-panel-v10-0 .email-detail-sender { display: flex; align-items: center; gap: 8px; }
+#phone-sim-panel-v10-0 .email-detail-sender .sender-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid #ffd1d1; }
+#phone-sim-panel-v10-0 .email-detail-body { flex: 1; padding: 16px; line-height: 1.6; font-size: 14px; color: #333; }
+#phone-sim-panel-v10-0 .email-attachment { margin: 0 16px 16px; background: white; border-radius: 10px; border: 1px solid #ffd1d1; }
+#phone-sim-panel-v10-0 .attachment-title { font-size: 13px; color: #ff6b6b; font-weight: bold; padding: 10px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid #ffd1d1; }
+#phone-sim-panel-v10-0 .attachment-item { display: flex; align-items: center; gap: 8px; padding: 10px; cursor: pointer; transition: background-color 0.2s; }
+#phone-sim-panel-v10-0 .attachment-item:hover { background: #fff6f6; }
+#phone-sim-panel-v10-0 .attachment-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: rgba(255,209,209,0.2); color: #ff6b6b; font-size: 20px; }
+#phone-sim-panel-v10-0 .attachment-info { flex: 1; }
+#phone-sim-panel-v10-0 .attachment-name { font-size: 13px; color: #333; margin-bottom: 2px; }
+#phone-sim-panel-v10-0 .attachment-meta { font-size: 11px; color: #666; }
+#phone-sim-panel-v10-0 .email-actions { padding: 10px 16px; display: flex; gap: 12px; justify-content: center; background: #ffebeb; border-top: 1px solid #ffd1d1; }
+#phone-sim-panel-v10-0 .action-button { padding: 8px 20px; border: none; border-radius: 16px; background: linear-gradient(145deg, #ff7b7b, #ff5252); color: white; font-size: 13px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 3px 10px rgba(255,107,107,0.3); }
+#phone-sim-panel-v10-0 .action-button:hover { transform: translateY(-2px); }
+
+/* Unified Delete Button for Lists */
+#phone-sim-panel-v10-0 .delete-item-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: #aaa; border-radius: 50%; transition: all .2s ease; opacity: 0; cursor: pointer; }
+#phone-sim-panel-v10-0 .email-item:hover .delete-item-btn,
+#phone-sim-panel-v10-0 .call-log-item:hover .delete-item-btn { opacity: 1; }
+#phone-sim-panel-v10-0 .delete-item-btn:hover { background: rgba(0,0,0,0.1); color: #f44336; }

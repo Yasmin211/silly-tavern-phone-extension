@@ -1,0 +1,114 @@
+
+
+@keyframes phone-sim-v14-wave-animation{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+@keyframes phone-sim-v14-pulse-gold{0%{box-shadow:0 0 0 0 rgba(249,216,154,0.7);}70%{box-shadow:0 0 0 15px rgba(249,216,154,0);}100%{box-shadow:0 0 0 0 rgba(249,216,154,0);}}
+
+/* Generic Rich Content Styles */
+#phone-sim-panel-v10-0 .inline-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 4px 0;
+    display: block;
+}
+/* New rule to constrain main message images */
+#phone-sim-panel-v10-0 .message-content .inline-image {
+    max-width: 50%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+#phone-sim-panel-v10-0 .mixed-content > * {
+    max-width: 100%;
+}
+#phone-sim-panel-v10-0 .pseudo-image-moment {
+    padding: 10px 14px;
+    background: #f0f2f5;
+    border: 1px solid #e0e2e7;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-style: italic;
+}
+/* New, specific image sizing rules */
+#phone-sim-panel-v10-0 .moment-comment .inline-image,
+#phone-sim-panel-v10-0 .reply-content-wrapper .inline-image {
+    max-width: 60px;
+    max-height: 80px;
+    object-fit: cover;
+    margin: 8px 0;
+    border-radius: 6px;
+}
+
+#phone-sim-panel-v10-0 .post-detail-body .inline-image,
+#phone-sim-panel-v10-0 .webpage-content .inline-image {
+    max-width: 90%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+
+/* Voice Message */
+#phone-sim-panel-v10-0 .rich-message.voice-message{cursor:pointer;padding:8px 12px;display:flex;flex-direction:column;align-items:flex-start;width:fit-content;min-width:120px; box-shadow: 0 1px 1px rgba(0,0,0,0.05);}
+#phone-sim-panel-v10-0 .message.received .rich-message.voice-message { background: #fff; border-radius: 18px; border-bottom-left-radius: 4px;}
+#phone-sim-panel-v10-0 .message.sent .rich-message.voice-message { background: linear-gradient(135deg,#6C8CD5,#4A6FBF); border-radius: 18px; border-bottom-right-radius: 4px; }
+#phone-sim-panel-v10-0 .voice-bar{display:flex;align-items:center;gap:10px;}
+#phone-sim-panel-v10-0 .voice-wave{display:flex;align-items:center;gap:2px;height:20px;}
+#phone-sim-panel-v10-0 .voice-wave span{width:2.5px;border-radius:2px;background:#333;animation:phone-sim-v14-wave-animation 1.2s infinite ease-in-out;}
+#phone-sim-panel-v10-0 .message.sent .rich-message.voice-message .voice-wave span{background:#fff;}
+#phone-sim-panel-v10-0 .voice-wave span:nth-child(1){height:40%;animation-delay:0.2s;}
+#phone-sim-panel-v10-0 .voice-wave span:nth-child(2){height:70%;animation-delay:0s;}
+#phone-sim-panel-v10-0 .voice-wave span:nth-child(3){height:100%;animation-delay:0.3s;}
+#phone-sim-panel-v10-0 .voice-wave span:nth-child(4){height:60%;animation-delay:0.1s;}
+#phone-sim-panel-v10-0 .voice-duration{font-size:13px;flex-shrink:0;}
+#phone-sim-panel-v10-0 .message.sent .voice-duration { color: #fff; }
+#phone-sim-panel-v10-0 .voice-transcript{margin:0;padding:0;border:none;font-size:13px;max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .3s ease,margin-top .3s ease;color:#666;}
+#phone-sim-panel-v10-0 .message.sent .voice-transcript{color:#eee;}
+#phone-sim-panel-v10-0 .rich-message.voice-message.expanded .voice-transcript{max-height:200px;opacity:1;margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.1);}
+#phone-sim-panel-v10-0 .message.sent .rich-message.voice-message.expanded .voice-transcript{border-top-color:rgba(255,255,255,.2);}
+
+/* Pseudo Image */
+#phone-sim-panel-v10-0 .pseudo-image-message .pseudo-image-cover { padding: 10px 14px; background: #fff; border: 1px solid #e0e2e7; border-radius: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; color: #555; }
+#phone-sim-panel-v10-0 .pseudo-image-message .pseudo-image-cover i { color: #888; }
+#phone-sim-panel-v10-0 .pseudo-image-message .pseudo-image-text { padding: 10px 14px; background: #fff; border: 1px solid #e0e2e7; border-radius: 12px; display: none; }
+
+/* Transfer & Red Packet */
+#phone-sim-panel-v10-0 .rich-message.transfer-message { padding: 12px; border-radius: 8px; max-width: 220px; box-sizing: border-box; color: #fff; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.unclaimed { cursor: pointer; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.transfer.unclaimed { background-color: #FA9D3B; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.red_packet.unclaimed { background-color: #e64340; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.claimed { background-color: #f0f0f0 !important; cursor: default; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.claimed .transfer-inner { border-bottom-color: #ddd; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.claimed .transfer-icon svg { color: #aaa !important; fill: #aaa !important; stroke: #aaa !important; }
+#phone-sim-panel-v10-0 .rich-message.transfer-message.claimed .transfer-note, #phone-sim-panel-v10-0 .rich-message.transfer-message.claimed .transfer-amount, #phone-sim-panel-v10-0 .rich-message.transfer-message.claimed .transfer-footer { color: #999 !important; }
+#phone-sim-panel-v10-0 .transfer-inner { display: flex; align-items: center; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.4); }
+#phone-sim-panel-v10-0 .transfer-icon svg { width: 32px; height: 32px; }
+#phone-sim-panel-v10-0 .transfer-info { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+#phone-sim-panel-v10-0 .transfer-note { font-size: 16px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
+#phone-sim-panel-v10-0 .transfer-amount { font-size: 13px; opacity: .9; }
+#phone-sim-panel-v10-0 .transfer-footer { margin-top: 6px; font-size: 11px; text-align: left; }
+
+#phone-sim-transfer-modal .transfer-modal-content{background:#fff;border-radius:12px;width:260px;padding:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.2);animation:phone-sim-v14-fadeInSlideUp 0.3s ease-out;}
+#phone-sim-transfer-modal .transfer-modal-title{font-size:16px;font-weight:600;}
+#phone-sim-transfer-modal .transfer-modal-subtitle{font-size:13px;color:#888;margin-top:4px;}
+#phone-sim-transfer-modal .transfer-modal-amount{font-size:32px;font-weight:bold;margin:20px 0;}
+#phone-sim-transfer-modal .transfer-modal-note{font-size:14px;color:#555;margin-bottom:20px;}
+#phone-sim-transfer-modal .transfer-modal-buttons{display:flex;gap:10px;}
+#phone-sim-transfer-modal .modal-btn{flex:1;padding:10px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;}
+#phone-sim-transfer-modal .modal-btn.cancel-btn{background:#f0f0f0;color:#555;}
+#phone-sim-transfer-modal .modal-btn.confirm-btn{background:#07c160;color:#fff;}
+
+#phone-sim-red-packet-modal .red-packet-modal-content{position:relative;width:280px;height:380px;background:linear-gradient(160deg, #e64340, #d83b38);border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:flex;flex-direction:column;align-items:center;padding:20px;color:#f9d89a;animation:phone-sim-v14-fadeInSlideUp 0.3s ease-out;}
+#phone-sim-red-packet-modal .red-packet-close{position:absolute;top:10px;left:10px;background:none;border:none;font-size:24px;color:#f9d89a;opacity:0.7;cursor:pointer;}
+#phone-sim-red-packet-modal .red-packet-sender{margin-top:40px;font-size:18px;}
+#phone-sim-red-packet-modal .red-packet-note{margin-top:10px;font-size:24px;font-weight:500;}
+#phone-sim-red-packet-modal .red-packet-open-btn{position:absolute;bottom:80px;width:80px;height:80px;border-radius:50%;background:#f9d89a;color:#c83330;font-size:30px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold;animation:phone-sim-v14-pulse-gold 2s infinite;}
+
+/* Location Message */
+#phone-sim-panel-v10-0 .rich-message.location-message { padding: 0 !important; overflow: hidden; width: 220px; background-color: white; border: 1px solid #EAEAEA; border-radius: 10px; cursor: pointer; }
+#phone-sim-panel-v10-0 .location-map { height: 100px; background-color: #F0F2F5; background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cdefs%3E%3Cstyle%3E.road%7Bstroke-linecap:round;stroke-linejoin:round;fill:none%7D%3C/style%3E%3C/defs%3E%3Crect width=\'100\' height=\'100\' fill=\'%23F0F2F5\'/%3E%3Crect x=\'60\' y=\'10\' width=\'30\' height=\'20\' fill=\'%23E9EBEE\' rx=\'2\'/%3E%3Crect x=\'8\' y=\'45\' width=\'25\' height=\'40\' fill=\'%23E9EBEE\' rx=\'2\'/%3E%3Cpath class=\'road\' d=\'M-5 15h110 M-5 85h110\' stroke=\'%23D8DDE3\' stroke-width=\'1\'/%3E%3Cpath class=\'road\' d=\'M-10 35 L110 25\' stroke=\'%23C8CDD2\' stroke-width=\'7\'/%3E%3Cpath class=\'road\' d=\'M35 -10 C 40 40, 70 60, 60 110\' stroke=\'%23D8DDE3\' stroke-width=\'4\'/%3E%3Cg transform=\'translate(0, -10)\'%3E%3Cpath d=\'M50 38 C50 38 45 33 45 28 A5 5 0 1 1 55 28 C55 33 50 38 50 38 Z\' fill=\'%2307C160\' stroke=\'%23FFFFFF\' stroke-width=\'1.2\'/%3E%3Ccircle cx=\'50\' cy=\'28\' r=\'2\' fill=\'white\'/%3E%3C/g%3E%3C/svg%3E'); background-size: cover; position: relative; }
+#phone-sim-panel-v10-0 .location-text-content { padding: 8px 12px 10px; }
+#phone-sim-panel-v10-0 .location-title { font-size: 14px; color: #000; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#phone-sim-panel-v10-0 .location-subtitle { font-size: 12px; color: #AAAAAA; margin: 2px 0 0 0; }

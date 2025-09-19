@@ -1,0 +1,388 @@
+#phone-sim-panel-v10-0 #browserapp-view .browser-header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: rgba(240, 240, 240, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ddd;
+    gap: 6px;
+    flex-shrink: 0;
+}
+#phone-sim-panel-v10-0 .browser-nav-controls,
+#phone-sim-panel-v10-0 .browser-menu-controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 2px;
+}
+#phone-sim-panel-v10-0 .browser-header .nav-btn {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+#phone-sim-panel-v10-0 .browser-header .nav-btn:hover {
+    background: #e0e0e0;
+}
+#phone-sim-panel-v10-0 .browser-header .nav-btn:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+    background: none;
+}
+#phone-sim-panel-v10-0 .browser-address-bar-container {
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    height: 32px;
+    min-width: 100px;
+}
+#phone-sim-panel-v10-0 #browser-address-input {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 60px 0 32px;
+    font-size: 14px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#phone-sim-panel-v10-0 .address-bar-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+}
+#phone-sim-panel-v10-0 .bookmark-btn {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    padding: 4px;
+}
+#phone-sim-panel-v10-0 .bookmark-btn .fas { /* Solid star for bookmarked */
+    color: #f7b731;
+}
+#phone-sim-panel-v10-0 #browser-go-btn {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4285F4;
+    color: white;
+    border: none;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#phone-sim-panel-v10-0 .browser-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+#phone-sim-panel-v10-0 .browser-subview {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+}
+#phone-sim-panel-v10-0 .browser-subview.active {
+    display: flex;
+}
+#phone-sim-panel-v10-0 .search-home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 16px 16px;
+    box-sizing: border-box;
+    gap: 30px;
+    flex: 1;
+}
+#phone-sim-panel-v10-0 .search-engine-logo {
+    font-size: 32px;
+    color: #4285F4;
+    font-weight: bold;
+    margin: 0;
+}
+#phone-sim-panel-v10-0 .quick-search-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    padding: 0 20px;
+}
+#phone-sim-panel-v10-0 .quick-search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color .2s;
+}
+#phone-sim-panel-v10-0 .quick-search-item:hover {
+    background: #f0f0f0;
+}
+#phone-sim-panel-v10-0 .quick-search-item i {
+    font-size: 24px;
+    color: #555;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5;
+    border-radius: 50%;
+}
+#phone-sim-panel-v10-0 .quick-search-item span {
+    font-size: 12px;
+    color: #333;
+}
+
+#phone-sim-panel-v10-0 .search-results-list,
+#phone-sim-panel-v10-0 .webpage-content {
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    flex: 1;
+}
+#phone-sim-panel-v10-0 .search-result-item {
+    margin-bottom: 24px;
+}
+#phone-sim-panel-v10-0 .result-title {
+    font-size: 17px;
+    color: #1a0dab;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    font-weight: 400;
+}
+#phone-sim-panel-v10-0 .result-title:hover {
+    text-decoration: underline;
+}
+#phone-sim-panel-v10-0 .result-url {
+    font-size: 13px;
+    color: #006621;
+    margin: 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#phone-sim-panel-v10-0 .result-snippet {
+    font-size: 14px;
+    color: #4d5156;
+    line-height: 1.5;
+    margin: 0;
+}
+
+#phone-sim-panel-v10-0 .webpage-content {
+    line-height: 1.6;
+}
+#phone-sim-panel-v10-0 .webpage-content h1,
+#phone-sim-panel-v10-0 .webpage-content h2,
+#phone-sim-panel-v10-0 .webpage-content h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #202124;
+}
+#phone-sim-panel-v10-0 .webpage-content h1 {
+    font-size: 26px;
+    font-weight: 600;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 0.3em;
+}
+#phone-sim-panel-v10-0 .webpage-content h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
+#phone-sim-panel-v10-0 .webpage-content p {
+    font-size: 15px;
+    margin-bottom: 1em;
+    color: #3c4043;
+}
+#phone-sim-panel-v10-0 .webpage-content blockquote {
+    border-left: 4px solid #dfe1e5;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #5f6368;
+    font-style: italic;
+}
+#phone-sim-panel-v10-0 .webpage-content a[data-download="true"] {
+    color: #1a0dab;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+#phone-sim-panel-v10-0 .browser-loader {
+    padding: 40px 20px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+#phone-sim-panel-v10-0 .browser-empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+/* History & Bookmarks */
+#phone-sim-panel-v10-0 #browserhistory-view .app-header {
+    justify-content: center;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .header-action-btn {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #4285F4;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .tab-item.active {
+    color: #4285F4;
+    font-weight: 600;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4285F4;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .tab-content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .list-container {
+    display: none;
+}
+#phone-sim-panel-v10-0 #browserhistory-view .list-container.active {
+    display: block;
+}
+#phone-sim-panel-v10-0 .hb-list-group-title {
+    padding: 10px 16px 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    background: #f7f7f7;
+    border-bottom: 1px solid #eee;
+}
+#phone-sim-panel-v10-0 .hb-list-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 12px;
+}
+#phone-sim-panel-v10-0 .hb-list-item .item-icon {
+    font-size: 16px;
+    color: #888;
+    width: 20px;
+    text-align: center;
+}
+#phone-sim-panel-v10-0 .hb-list-item .item-info {
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+#phone-sim-panel-v10-0 .hb-list-item .item-title {
+    font-size: 14px;
+    color: #1a0dab;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#phone-sim-panel-v10-0 .hb-list-item .item-url {
+    font-size: 12px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#phone-sim-panel-v10-0 .hb-list-item .delete-item-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px; /* Easier to click */
+}
+#phone-sim-panel-v10-0 .hb-list-item .delete-item-btn:hover {
+    color: #f44336;
+}
+#phone-sim-panel-v10-0 .hb-list-empty {
+    text-align: center;
+    margin-top: 40px;
+    color: #999;
+}
+
+/* Skeleton Loader Styles */
+@keyframes skeleton-pulse {
+    0% { background-color: #e9ebee; }
+    50% { background-color: #f6f7f8; }
+    100% { background-color: #e9ebee; }
+}
+.skeleton {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    border-radius: 4px;
+    background-color: #e9ebee;
+}
+.skeleton-search-result {
+    margin-bottom: 24px;
+}
+.skeleton-title { width: 60%; height: 17px; margin-bottom: 8px; }
+.skeleton-url { width: 40%; height: 13px; margin-bottom: 8px; }
+.skeleton-text { width: 100%; height: 14px; margin-top: 4px; }
+.skeleton-text.short { width: 80%; }
+
+.skeleton-webpage .skeleton-title { height: 26px; width: 70%; margin-bottom: 20px; }
+.skeleton-webpage .skeleton-text { margin-bottom: 12px; }

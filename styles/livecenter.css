@@ -1,0 +1,169 @@
+/* Live Center General */
+#phone-sim-panel-v10-0 .live-board-list-content,
+#phone-sim-panel-v10-0 .live-stream-list-content {
+    flex: 1;
+    overflow-y: auto;
+    background: #fff;
+}
+
+/* Search Bar Specifics for Live Center */
+#phone-sim-panel-v10-0 #livecenterapp-view .app-search-bar .search-input-wrapper,
+#phone-sim-panel-v10-0 #livestreamlist-view .app-search-bar .search-input-wrapper {
+    position: relative;
+}
+
+/* Board List */
+#phone-sim-panel-v10-0 .live-board-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+#phone-sim-panel-v10-0 .live-board-item:hover { background: #f9f9f9; }
+#phone-sim-panel-v10-0 .live-board-icon { font-size: 20px; width: 28px; text-align: center; color: #ff5722; margin-right: 15px; }
+#phone-sim-panel-v10-0 .live-board-name { font-size: 16px; font-weight: 500; color: #333; flex-grow: 1; }
+#phone-sim-panel-v10-0 .live-item-actions { display: flex; align-items: center; gap: 16px; }
+#phone-sim-panel-v10-0 .live-item-actions .fa-chevron-right { color: #ccc; }
+#phone-sim-panel-v10-0 .live-item-actions .generate-content-btn { background: none; border: none; cursor: pointer; font-size: 16px; color: #888; padding: 8px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+#phone-sim-panel-v10-0 .live-item-actions .generate-content-btn:hover { background-color: #ffe0d8; color: #ff5722; }
+
+
+/* Stream List (RESTORED GRID VIEW) */
+#phone-sim-panel-v10-0 .live-stream-list-content {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    align-content: start;
+}
+#phone-sim-panel-v10-0 .live-stream-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+#phone-sim-panel-v10-0 .stream-thumbnail-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000; /* Black background as requested */
+}
+#phone-sim-panel-v10-0 .stream-viewer-count {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+#phone-sim-panel-v10-0 .stream-info {
+    padding: 8px;
+}
+#phone-sim-panel-v10-0 .stream-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#phone-sim-panel-v10-0 .stream-streamer-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#phone-sim-panel-v10-0 .streamer-avatar-small {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#phone-sim-panel-v10-0 .streamer-name-small {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Stream Room */
+#phone-sim-panel-v10-0 #livestreamroom-view { background: #18181b; color: #efeff1; }
+#phone-sim-panel-v10-0 .stream-video-desc {
+    background: #000;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    color: #a1a1aa;
+    font-style: italic;
+    flex-shrink: 0;
+    border-bottom: 1px solid #3f3f46;
+}
+#phone-sim-panel-v10-0 .stream-danmaku-container {
+    flex: 1;
+    padding: 8px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#phone-sim-panel-v10-0 .danmaku-item {
+    background: rgba(39, 39, 42, 0.8);
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    max-width: 90%;
+    word-break: break-all;
+    animation: phone-sim-v14-fadeInSlideUp 0.3s ease-out;
+}
+#phone-sim-panel-v10-0 .danmaku-item .danmaku-user {
+    color: #a1a1aa;
+    font-weight: 600;
+    margin-right: 8px;
+}
+#phone-sim-panel-v10-0 .stream-input-bar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #18181b;
+    border-top: 1px solid #3f3f46;
+    gap: 8px;
+}
+#phone-sim-panel-v10-0 .stream-danmaku-input {
+    flex: 1;
+    height: 36px;
+    border: 1px solid #3f3f46;
+    border-radius: 18px;
+    padding: 0 16px;
+    background: #27272a;
+    color: #efeff1;
+}
+#phone-sim-panel-v10-0 .stream-danmaku-send-btn {
+    width: auto;
+    height: 36px;
+    border: none;
+    border-radius: 18px;
+    background: #9147ff;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 16px;
+    font-weight: 600;
+}
+
+/* Skeletons */
+.skeleton-stream-list {
+    padding: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: start;
+}
+.skeleton-stream-list .skeleton-stream-item { background: #fff; border-radius: 8px; overflow: hidden; }
+.skeleton-stream-list .skeleton.thumbnail { height: 100px; border-radius: 0; }
+.skeleton-stream-list .skeleton-stream-info { padding: 8px; }
+.skeleton-stream-list .skeleton.title { height: 13px; width: 80%; margin-bottom: 8px; }
+.skeleton-stream-list .skeleton.meta { height: 20px; width: 60%; }

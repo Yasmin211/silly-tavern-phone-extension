@@ -1,0 +1,98 @@
+#phone-sim-panel-v10-0 #settingsapp-view .settings-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f0f2f5;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+#phone-sim-panel-v10-0 .settings-group-header {
+    font-size: 13px;
+    color: #6d6d72;
+    padding: 16px 16px 6px;
+    margin: 0;
+    font-weight: 400;
+}
+
+#phone-sim-panel-v10-0 .settings-group {
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+#phone-sim-panel-v10-0 .settings-group:first-of-type {
+    margin-top: 0;
+    border-top: none;
+}
+
+#phone-sim-panel-v10-0 .settings-group:last-child {
+    margin-bottom: 0;
+}
+
+#phone-sim-panel-v10-0 .settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff; /* Ensure item background is white */
+}
+
+#phone-sim-panel-v10-0 .settings-group .settings-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 0;
+    height: 1px;
+    background-color: #f0f0f0;
+}
+
+#phone-sim-panel-v10-0 .settings-group .settings-item.danger-item {
+    justify-content: center;
+}
+
+#phone-sim-panel-v10-0 .settings-item.danger-item span {
+    color: #ff3b30;
+}
+
+#phone-sim-panel-v10-0 .settings-item span { 
+    font-size: 16px; 
+    color: #000; 
+}
+
+#phone-sim-panel-v10-0 .settings-item i.fa-chevron-right { 
+    color: #c7c7cc; 
+}
+
+#phone-sim-panel-v10-0 .toggle-switch { 
+    width: 51px; 
+    height: 31px; 
+    background: #e9e9eb; 
+    border-radius: 16px; 
+    position: relative; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease; 
+}
+
+#phone-sim-panel-v10-0 .toggle-switch.active { 
+    background: #34c759; 
+}
+
+#phone-sim-panel-v10-0 .toggle-handle { 
+    width: 27px; 
+    height: 27px; 
+    background: white; 
+    border-radius: 50%; 
+    position: absolute; 
+    top: 2px; 
+    left: 2px; 
+    transition: left 0.2s ease; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+}
+
+#phone-sim-panel-v10-0 .toggle-switch.active .toggle-handle { 
+    left: 22px; 
+}

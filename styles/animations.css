@@ -1,0 +1,91 @@
+/* --- Animation System v2.0 --- */
+
+/* Base transition for smooth fade on tab switches */
+.view.fade-in {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.view.active.fade-in {
+    opacity: 1;
+}
+.view.fade-out {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+.view.active.fade-out {
+    opacity: 0;
+}
+
+
+/* Slide animations for forward/backward navigation */
+.view.slide-in-from-right {
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.slide-in-from-right {
+    transform: translateX(0);
+}
+.view.slide-out-to-left {
+    transform: translateX(0);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.slide-out-to-left {
+    transform: translateX(-100%);
+}
+
+.view.slide-in-from-left {
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.slide-in-from-left {
+    transform: translateX(0);
+}
+.view.slide-out-to-right {
+    transform: translateX(0);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.slide-out-to-right {
+    transform: translateX(100%);
+}
+
+
+/* Zoom animation for opening apps from homescreen */
+.view.zoom-in {
+    transform-origin: var(--origin-x, 50%) var(--origin-y, 50%);
+    transform: scale(0.05);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.25s linear, 
+                border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.zoom-in {
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 0;
+}
+
+/* Symmetrical Zoom-out for returning home */
+.view.zoom-out {
+    transform-origin: var(--origin-x, 50%) var(--origin-y, 50%);
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s linear 0.1s,
+                border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.zoom-out {
+    transform: scale(0.05);
+    opacity: 0;
+    border-radius: 50%;
+}
+
+/* Fallback Slide out to bottom when returning home (if zoom target isn't found) */
+.view.slide-out-to-bottom {
+    transform: translateY(0);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.view.active.slide-out-to-bottom {
+    transform: translateY(100%);
+}

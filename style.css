@@ -1,0 +1,18 @@
+/* 
+  This file now acts as the main entry point for all stylesheets.
+  Styles have been modularized into separate files for better organization.
+*/
+
+@import url('styles/base.css');
+@import url('styles/animations.css');
+@import url('styles/homescreen.css');
+@import url('styles/chatapp.css');
+@import url('styles/moments.css');
+@import url('styles/calls.css');
+@import url('styles/settings.css');
+@import url('styles/phone_email.css');
+@import url('styles/rich_messages.css');
+@import url('styles/system_messages.css');
+@import url('styles/browser.css');
+@import url('styles/forum.css');
+@import url('styles/livecenter.css');

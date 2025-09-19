@@ -1,0 +1,169 @@
+<div id="phone-sim-panel-v10-0" class="phone-container" style="display:none;">
+    <div id="phone-sim-notification-banner"></div>
+    <div class="phone-notch"></div>
+    <div class="status-bar"><div class="status-bar-left"><span class="status-time"></span></div><div class="status-bar-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><i class="fas fa-battery-three-quarters"></i></div></div>
+    <div class="views-container">
+        <div id="homescreen-view" class="view active" data-nav-level="0"><div class="app-grid"></div><div class="dock-bar"></div></div>
+        
+        <div id="chatapp-view" class="view" data-nav-level="1">
+            <div class="subview-wrapper">
+                 <div class="chat-list-subview subview active" data-subview="messages">
+                    <div class="app-header">
+                        <button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button>
+                        <h3>Messages</h3>
+                        <div class="header-actions-group">
+                            <div class="header-actions" id="add-chat-btn"><i class="fas fa-plus"></i></div>
+                            <div class="header-actions" id="chat-list-actions-btn"><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    <div class="chat-list-content"></div>
+                </div>
+                <div class="contacts-subview subview" data-subview="contacts">
+                    <div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Contacts</h3></div>
+                    <div class="app-search-bar">
+                        <div class="search-input-wrapper">
+                            <input type="search" class="search-input" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="contacts-list-content"></div>
+                </div>
+                <div class="discover-subview subview" data-subview="discover"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Discover</h3></div><div class="discover-list"><div class="discover-item" id="discover-moments"><i class="fas fa-images"></i><span>Moments</span><div class="discover-badge"></div><i class="fas fa-chevron-right"></i></div></div></div>
+                <div class="me-subview subview" data-subview="me"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Me</h3></div><div class="me-content"></div></div>
+            </div>
+            <div class="chatapp-bottom-nav"><div class="nav-item active" data-target="messages"><i class="fas fa-comment"></i><span>Messages</span><div class="nav-badge"></div></div><div class="nav-item" data-target="contacts"><i class="fas fa-address-book"></i><span>Contacts</span><div class="nav-badge"></div></div><div class="nav-item" data-target="discover"><i class="fas fa-compass"></i><span>Discover</span><div class="nav-badge"></div></div><div class="nav-item" data-target="me"><i class="fas fa-user"></i><span>Me</span></div></div>
+        </div>
+        
+        <div id="chatconversation-view" class="view" data-nav-level="2">
+            <div class="app-header chat-header"><button class="app-back-btn back-to-list-btn"><i class="fas fa-chevron-left"></i></button><div class="header-info"><img src="" class="header-avatar clickable-avatar"><div class="header-text"><div class="chat-name-wrapper"><h2 class="chat-name"></h2><i class="fas fa-pencil-alt edit-note-btn"></i></div><div class="header-status" style="display:none;"><div class="status-dot"></div><span>Online</span></div></div></div><div class="header-icons"><i class="fas fa-phone call-btn"></i><i class="fas fa-users members-btn"></i></div></div>
+            <div class="chat-messages"><div class="chat-loader" style="display: none;"></div></div>
+            <button class="scroll-to-bottom-btn"><i class="fas fa-chevron-down"></i><span class="unread-badge"></span></button>
+            <div class="reply-preview-bar" style="display:none;"><div class="reply-preview-content"></div><button class="close-reply-preview">&times;</button></div>
+            <div class="chat-input">
+                <button class="emoji-btn"><i class="fas fa-smile"></i></button>
+                <textarea class="input-field" rows="1" placeholder="Type..."></textarea>
+                <button class="rich-media-btn"><i class="fas fa-plus"></i></button>
+                <button class="send-btn" style="display:none;"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div id="rich-media-actions-menu" class="phone-sim-menu" style="display:none;">
+                <div class="menu-item" data-action="upload-local-image"><i class="fas fa-image fa-fw"></i> Local Image</div>
+                <div class="menu-item" data-action="send-image-url"><i class="fas fa-link fa-fw"></i> Image URL</div>
+                <div class="menu-item" data-action="send-image-text"><i class="fas fa-quote-right fa-fw"></i> Image from Text</div>
+                <div class="menu-item" data-action="send-voice-message"><i class="fas fa-microphone fa-fw"></i> Voice Message</div>
+                <div class="menu-item" data-action="send-transfer"><i class="fas fa-exchange-alt fa-fw"></i> Transfer</div>
+                <div class="menu-item" data-action="send-red-packet"><i class="fas fa-envelope-open-text fa-fw"></i> Red Packet</div>
+                <div class="menu-item" data-action="send-location"><i class="fas fa-map-marker-alt fa-fw"></i> Location</div>
+            </div>
+            <div class="rich-media-panel" style="display:none;">
+                <div class="rich-media-tabs">
+                    <button class="tab-btn active" data-tab="stickers">Stickers</button>
+                    <button class="tab-btn" data-tab="emoji">Emoji</button>
+                </div>
+                <div class="rich-media-tab-content active" data-tab-content="stickers">
+                    <div id="sticker-picker-grid"></div>
+                </div>
+                <div class="rich-media-tab-content" data-tab-content="emoji">
+                    <emoji-picker></emoji-picker>
+                </div>
+            </div>
+        </div>
+        <div id="groupmembers-view" class="view" data-nav-level="3"><div class="app-header"><button class="app-back-btn back-to-chat-btn"><i class="fas fa-chevron-left"></i></button><h3>Group Members</h3></div><div class="group-members-list"></div></div>
+        <div id="groupinvite-view" class="view" data-nav-level="4"><div class="app-header"><button class="app-back-btn back-to-members-btn"><i class="fas fa-chevron-left"></i></button><h3>Invite Friends</h3><button id="confirm-invite-btn" class="header-confirm-btn">Confirm</button></div><div class="invite-contact-list"></div></div>
+        <div id="groupcreation-view" class="view" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-list-btn"><i class="fas fa-chevron-left"></i></button><h3>Start Group Chat</h3><button id="confirm-group-creation-btn" class="header-confirm-btn" disabled>Done(0)</button></div><div class="group-creation-contact-list"></div></div>
+        
+        <div id="moments-view" class="view" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-discover-btn"><i class="fas fa-chevron-left"></i></button><h3>Moments</h3><div class="moments-header-actions-wrapper"><div class="header-actions" id="moments-notify-btn" title="View Notifications"><i class="fas fa-bell"></i><div class="header-badge"></div></div><div class="header-actions" id="moments-actions-btn"><i class="fas fa-ellipsis-v"></i></div></div></div><div class="moments-timeline"></div></div>
+        <div id="homepage-view" class="view" data-nav-level="3"><div class="homepage-content-wrapper"></div></div>
+        
+        <div id="phoneapp-view" class="view" data-nav-level="1"><div class="subview-wrapper"><div class="phone-contacts-subview subview active"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Contacts</h3></div><div class="phone-contact-list"></div></div><div class="phone-log-subview subview"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Call Log</h3></div><div class="call-log-list"></div></div><div class="phone-dialer-subview subview"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Dialpad</h3></div><div class="dialer-ui"><div class="dialer-display-wrapper"><input type="text" class="dialer-display" readonly><button class="dialer-backspace"><i class="fas fa-backspace"></i></button></div><div class="dialer-grid"><div class="dial-key" data-key="1">1</div> <div class="dial-key" data-key="2">2<span>ABC</span></div> <div class="dial-key" data-key="3">3<span>DEF</span></div><div class="dial-key" data-key="4">4<span>GHI</span></div> <div class="dial-key" data-key="5">5<span>JKL</span></div> <div class="dial-key" data-key="6">6<span>MNO</span></div><div class="dial-key" data-key="7">7<span>PQRS</span></div><div class="dial-key" data-key="8">8<span>TUV</span></div> <div class="dial-key" data-key="9">9<span>WXYZ</span></div><div class="dial-key" data-key="*">*</div> <div class="dial-key" data-key="0">0<span>+</span></div> <div class="dial-key" data-key="#">#</div></div><div class="dialer-actions"><button class="dial-call-btn"><i class="fas fa-phone"></i></button></div></div></div></div><div class="phoneapp-bottom-nav"><div class="nav-item active" data-target="contacts"><i class="fas fa-address-book"></i><span>Contacts</span></div><div class="nav-item" data-target="log"><i class="fas fa-history"></i><span>Call Log</span></div><div class="nav-item" data-target="dialer"><i class="fas fa-grip-horizontal"></i><span>Dialpad</span></div></div></div>
+        
+        <div id="emailapp-view" class="view" data-nav-level="1"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Email</h3></div><div class="email-list-content"></div></div>
+        <div id="emaildetail-view" class="view" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-email-list-btn"><i class="fas fa-chevron-left"></i></button><h3>Email</h3><div id="delete-email-btn" class="header-actions" title="Delete Email"><i class="fas fa-trash"></i></div></div><div class="email-detail-scroll-content"></div><div class="email-actions"></div></div>
+        
+        <div id="voicecall-view" class="view" data-nav-level="99"></div>
+        <div id="phonecall-view" class="view" data-nav-level="99"></div>
+
+        <div id="settingsapp-view" class="view" data-nav-level="1"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Settings</h3></div><div class="settings-content"><div class="settings-group"><div class="settings-item" id="change-my-nickname"><span>My Nickname</span><i class="fas fa-chevron-right"></i></div><div class="settings-item" id="upload-player-avatar"><span>Change My Avatar</span><i class="fas fa-chevron-right"></i></div></div><h3 class="settings-group-header">Wallpaper Settings</h3><div class="settings-group"><div class="settings-item" id="upload-homescreen-wallpaper"><span>Homescreen Wallpaper</span><i class="fas fa-chevron-right"></i></div><div class="settings-item" id="upload-chatlist-wallpaper"><span>Chat List Wallpaper</span><i class="fas fa-chevron-right"></i></div><div class="settings-item" id="upload-chatview-wallpaper"><span>Chat Window Wallpaper</span><i class="fas fa-chevron-right"></i></div></div><h3 class="settings-group-header">General</h3><div class="settings-group"><div class="settings-item"><span>Mute Mode</span><div id="mute-switch" class="toggle-switch"><div class="toggle-handle"></div></div></div><div class="settings-item" id="reset-ui-position"><span>Reset UI Position</span><i class="fas fa-chevron-right"></i></div></div><div class="settings-group"><div class="settings-item danger-item" id="reset-all-data"><span>Reset All Phone Data</span></div></div></div></div>
+
+        <div id="browserapp-view" class="view" data-nav-level="1"><div class="browser-header"><div class="browser-nav-controls"><button id="browser-back-btn" class="nav-btn"><i class="fas fa-chevron-left"></i></button></div><div class="browser-address-bar-container"><i class="fas fa-search address-bar-icon"></i><input type="text" id="browser-address-input" placeholder="Search or enter a URL"><button id="browser-bookmark-toggle-btn" class="bookmark-btn" disabled><i class="far fa-star"></i></button><button id="browser-go-btn"><i class="fas fa-arrow-right"></i></button></div><div class="browser-menu-controls"><button id="browser-home-btn" class="nav-btn"><i class="fas fa-home"></i></button><button id="browser-bookmarks-btn" class="nav-btn"><i class="fas fa-book"></i></button></div></div><div class="browser-content"><div id="search-home-subview" class="browser-subview active"><div class="search-home-content"><h1 class="search-engine-logo">SimSearch</h1><div class="quick-search-grid"><div class="quick-search-item" data-term="Starlight Academy"><i class="fas fa-university"></i><span>Academy</span></div><div class="quick-search-item" data-term="Latest News"><i class="fas fa-newspaper"></i><span>News</span></div><div class="quick-search-item" data-term="Campus Map"><i class="fas fa-map-marked-alt"></i><span>Map</span></div><div class="quick-search-item" data-term="Weather"><i class="fas fa-cloud-sun"></i><span>Weather</span></div></div></div></div><div id="search-results-subview" class="browser-subview"><div id="browser-search-results-list" class="search-results-list"></div></div><div id="webpage-subview" class="browser-subview"><div id="webpage-content" class="webpage-content"></div></div><div id="browserhistory-view" class="browser-subview" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-browser-btn"><i class="fas fa-chevron-left"></i></button><h3>Library</h3><button id="clear-history-btn" class="header-action-btn">Clear</button></div><div class="tabs"><div class="tab-item active" data-tab="history">History</div><div class="tab-item" data-tab="bookmarks">Bookmarks</div><div class="tab-item" data-tab="directory">Directory</div></div><div class="tab-content"><div class="list-container active" data-tab-content="history"><div id="history-list"></div></div><div class="list-container" data-tab-content="bookmarks"><div id="bookmarks-list"></div></div><div class="list-container" data-tab-content="directory"><div id="directory-list"></div></div></div></div></div></div>
+
+        <div id="forumapp-view" class="view" data-nav-level="1"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Forum</h3><div class="header-actions" id="manage-forum-btn"><i class="fas fa-ellipsis-v"></i></div></div><div class="forum-board-list-content"></div></div>
+        <div id="forumpostlist-view" class="view" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-board-list-btn"><i class="fas fa-chevron-left"></i></button><h3>Board</h3><div class="header-actions" id="new-forum-post-btn"><i class="fas fa-plus"></i></div></div><div class="app-search-bar"><div class="search-input-wrapper"><input type="search" class="search-input" placeholder="Search posts..."><button class="search-send-btn"><i class="fas fa-arrow-right"></i></button></div></div><div class="forum-post-list-content"></div></div>
+        <div id="forumpostdetail-view" class="view" data-nav-level="3"><div class="app-header"><button class="app-back-btn back-to-post-list-btn"><i class="fas fa-chevron-left"></i></button><h3>Post Details</h3></div><div class="forum-post-detail-content"></div><div class="forum-reply-bar"><input type="text" class="forum-reply-input" placeholder="Reply..."><button class="forum-reply-send-btn"><i class="fas fa-paper-plane"></i></button></div></div>
+
+        <div id="livecenterapp-view" class="view" data-nav-level="1"><div class="app-header"><button class="app-back-btn back-to-home-btn"><i class="fas fa-chevron-left"></i></button><h3>Live Center</h3><div class="header-actions" id="manage-livecenter-btn"><i class="fas fa-ellipsis-v"></i></div></div><div class="live-board-list-content"></div></div>
+        <div id="livestreamlist-view" class="view" data-nav-level="2"><div class="app-header"><button class="app-back-btn back-to-livecenter-btn"><i class="fas fa-chevron-left"></i></button><h3>Board</h3><div class="header-actions" id="new-live-stream-btn"><i class="fas fa-plus"></i></div></div><div class="app-search-bar"><div class="search-input-wrapper"><input type="search" class="search-input" placeholder="Search streams..."><button class="search-send-btn"><i class="fas fa-arrow-right"></i></button></div></div><div class="live-stream-list-content"></div></div>
+        <div id="livestreamroom-view" class="view" data-nav-level="3"><div class="app-header"><button class="app-back-btn back-to-livestreamlist-btn"><i class="fas fa-chevron-left"></i></button><h3>Stream Room</h3></div><div class="stream-video-desc"></div><div class="stream-danmaku-container"></div><div class="stream-input-bar"><input type="text" class="stream-danmaku-input" placeholder="Send a comment~"><button class="stream-danmaku-send-btn">Send</button></div></div>
+
+        <div id="creation-view" class="view" data-nav-level="90">
+            <div class="app-header">
+                <button class="app-back-btn" id="creation-back-btn"><i class="fas fa-chevron-left"></i></button>
+                <h3 id="creation-view-title">Create</h3>
+            </div>
+            <form id="creation-form">
+                <div class="creation-form-group">
+                    <label for="creation-board-input">Board</label>
+                    <input type="text" id="creation-board-input" placeholder="e.g. Campus Life" required>
+                </div>
+                <div class="creation-form-group">
+                    <label for="creation-title-input">Title</label>
+                    <input type="text" id="creation-title-input" placeholder="Enter title" required>
+                </div>
+                <div class="creation-form-group">
+                    <label for="creation-content-input">Content</label>
+                    <textarea id="creation-content-input" rows="8" placeholder="Enter content..." required></textarea>
+                </div>
+                <button type="submit" id="creation-submit-btn">Publish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modals and Overlays -->
+    <div class="voice-call-modal" style="display:none;"><audio class="voice-call-audio" src="https://files.catbox.moe/k339d2.mp3" loop></audio><div class="caller-avatar-container"><img src="" class="caller-avatar"/></div><div class="caller-name"></div><div class="call-status">Voice Call...</div><div class="call-buttons"><button class="call-button reject-call"><i class="fas fa-phone"></i></button><button class="call-button accept-call"><i class="fas fa-phone"></i></button></div></div>
+    <div class="phone-sim-modal-overlay" id="phone-sim-moments-notify-modal" style="display:none;">
+        <div class="phone-sim-notify-modal-content">
+            <div class="phone-sim-notify-modal-header">
+                <h3>Messages</h3>
+                <button class="phone-sim-notify-close">&times;</button>
+            </div>
+            <div class="phone-sim-notify-list"></div>
+        </div>
+    </div>
+    <div class="phone-sim-dialog-overlay" id="phone-sim-add-friend-dialog" style="display:none;">
+        <div class="phone-sim-dialog">
+            <h3>Add Friend</h3>
+            <div class="dialog-content">
+                <div class="creation-form-group" style="margin-bottom: 10px;">
+                    <label for="add-friend-id-input">ID (Phone Number)</label>
+                    <input type="text" id="add-friend-id-input" placeholder="Enter 11-digit phone number" required>
+                </div>
+                <div class="creation-form-group">
+                    <label for="add-friend-nickname-input">Nickname</label>
+                    <input type="text" id="add-friend-nickname-input" placeholder="Enter their nickname" required>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <button id="phone-sim-add-friend-cancel" class="dialog-btn cancel-btn">Cancel</button>
+                <button id="phone-sim-add-friend-confirm" class="dialog-btn confirm-btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Menus -->
+    <div class="phone-sim-menu" id="message-actions-menu" style="display:none;"><div class="menu-item" data-action="reply">Reply</div><div class="menu-item" data-action="edit">Edit</div><div class="menu-item" data-action="recall">Recall</div><div class="menu-item" data-action="delete">Delete</div></div>
+    <div class="phone-sim-menu" id="npc-message-actions-menu" style="display:none;"><div class="menu-item" data-action="reply">Reply</div><div class="menu-item" data-action="delete">Delete</div></div>
+    <div class="phone-sim-menu" id="transfer-actions-menu" style="display:none;"><div class="menu-item" data-action="accept">Accept</div><div class="menu-item" data-action="ignore">Ignore</div></div>
+    <div class="phone-sim-menu" id="player-moment-actions-menu" style="display:none;"><div class="menu-item" data-action="edit_moment">Edit</div><div class="menu-item" data-action="delete_moment">Delete</div></div>
+    <div class="phone-sim-menu" id="npc-moment-actions-menu" style="display:none;"><div class="menu-item" data-action="delete_moment">Delete</div><div class="menu-item" data-action="report">Report</div></div>
+    <div class="phone-sim-menu" id="moment-comment-actions-menu" style="display:none;"><div class="menu-item" data-action="edit_comment">Edit</div><div class="menu-item" data-action="recall_comment">Recall</div><div class="menu-item" data-action="delete_comment">Delete</div></div>
+    <div class="phone-sim-menu" id="manage-chats-menu" style="display:none;"><div class="menu-item" data-action="clear_all_history">Clear All Chat History</div></div>
+    <div class="phone-sim-menu" id="add-chat-menu" style="display:none;"><div class="menu-item" data-action="add-friend">Add Friend</div><div class="menu-item" data-action="start-group-chat">Start Group Chat</div></div>
+    <div class="phone-sim-menu" id="manage-moments-menu" style="display:none;"><div class="menu-item" data-action="clear_all_moments">Clear All Moments</div></div>
+    <div class="phone-sim-menu" id="manage-forum-menu" style="display:none;"><div class="menu-item" data-action="clear_all_forum_data">Clear All Forum Data</div></div>
+    <div class="phone-sim-menu" id="manage-livecenter-menu" style="display:none;"><div class="menu-item" data-action="clear_all_live_data">Clear All Live Data</div></div>
+    <div class="phone-sim-menu" id="player-forum-post-actions-menu" style="display:none;"><div class="menu-item" data-action="edit_forum_post">Edit</div><div class="menu-item" data-action="delete_forum_post">Delete</div></div>
+    <div class="phone-sim-menu" id="npc-forum-post-actions-menu" style="display:none;"><div class="menu-item" data-action="delete_forum_post">Delete</div></div>
+    <div class="phone-sim-menu" id="player-forum-reply-actions-menu" style="display:none;"><div class="menu-item" data-action="edit_forum_reply">Edit</div><div class="menu-item" data-action="delete_forum_reply">Delete</div></div>
+    <div class="phone-sim-menu" id="npc-forum-reply-actions-menu" style="display:none;"><div class="menu-item" data-action="delete_forum_reply">Delete</div></div>
+
+    <!-- Core Staged Actions Button -->
+    <div id="phone-sim-commit-btn-v10-0"><i class="fas fa-paper-plane"></i></div>
+</div>
